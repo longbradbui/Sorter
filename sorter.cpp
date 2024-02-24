@@ -1,6 +1,6 @@
 #include <vector>
 #include <string>
-// #include <sys/time.h>
+//#include <sys/time.h>
 #include <iostream>
 #include "sorts.h"
 using namespace std;
@@ -10,22 +10,18 @@ using namespace std;
 void InitVector(vector<int>& item_vetor, int size);
 void PrintVector(const vector<int>& item_vector, string name);
 int Elapsed(const timeval& start, const timeval& end);
-
 int main(int argc, char* argv[])
 {
 	int size = 0;
 	string sort_name = "";
 	bool print_out = false;
-
 	if ((argc != 3) && (argc != 4))
 	{
 		cerr << "Usage: Sorter algorithm size [Print]" << endl;
 		return -1;
 	}
-
 	sort_name = string(argv[1]);
 	size = atoi(argv[2]);
-
 	if (size <= 0)
 	{
 		cerr << "Vector size must be positive" << endl;
@@ -44,49 +40,42 @@ int main(int argc, char* argv[])
 			return -1;
 		}
 	}
-
 	srand(1);
 	vector<int> items(size);
 	InitVector(items, size);
-
 	if (print_out)
 	{
 		cout << "Initial:" << endl;
 		PrintVector(items, string("items"));
 		cout << endl;
 	}
-
 	//get time to measure the time it takes to sort
 	struct timeval start_time, end_time;
 	gettimeofday(&start_time, 0);
-
-	// 
+	//
 	// PLACE YOUR CODE HERE
-	//   ...Determine which sort to call on the vector
-	//   ...The code below only looks for QuickSort
+	// ...Determine which sort to call on the vector
+	// ...The code below only looks for QuickSort
 	// Other Signatures:
-	//		BubbleSort(items, 0, size - 1)
-	//		InsertionSort(items, 0, size – 1)
-	//		MergeSort(items, 0, size – 1)
-	//		IterativeMergeSort(items, 0, size – 1)
-	//		ShellSort(items, 0, size – 1)
-	// PLACE YOUR CODE HERE;  for instance:
+	// BubbleSort(items, 0, size - 1)
+	// InsertionSort(items, 0, size – 1)
+	// MergeSort(items, 0, size – 1)
+	// IterativeMergeSort(items, 0, size – 1)
+	// ShellSort(items, 0, size – 1)
+	// PLACE YOUR CODE HERE; for instance:
 	if (sort_name == "QuickSort")
 	{
 		QuickSort(items, 0, size - 1);
 	}
 	gettimeofday(&end_time, 0);
-
 	if (print_out)
 	{
 		cout << "Sorted:" << endl;
 		PrintVector(items, string("item"));
 	}
-
 	cout << "Time (microsecs): " << Elapsed(start_time, end_time) << endl;
 	return 0;
 }
-
 void InitVector(vector<int>& item_vector, int rand_max)
 {
 	if (rand_max < 0)
@@ -98,7 +87,6 @@ void InitVector(vector<int>& item_vector, int rand_max)
 	{
 		pool[i] = i;
 	}
-
 	int spot;
 	for (int i = 0; i < rand_max; i++)
 	{
@@ -107,19 +95,16 @@ void InitVector(vector<int>& item_vector, int rand_max)
 		pool.erase(pool.begin() + spot);
 	}
 }
-
 void PrintVector(const vector<int>& item_vector, string name)
 {
 	int size = item_vector.size();
-
 	for (int i = 0; i < size; i++)
 	{
 		cout << item_vector[i] << " ";
 	}
 	cout << endl;
 }
-
-// Function to calculate elapsed time 
+// Function to calculate elapsed time
 // Microseconds
 int Elapsed(const timeval& start, const timeval& end)
 {
@@ -127,10 +112,12 @@ int Elapsed(const timeval& start, const timeval& end)
 		+ (end.tv_usec - start.tv_usec);
 }
 */
-static const int kStart = 3;
-static const int kEnd = 8;
+
 int main()
 {
+static const int kStart = 3;
+static const int kEnd = 8;
+
 	cout << "Testing Bubble Sort" << endl;
 	std::vector<int> arr1 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
 	std::cout << "Original array: ";
@@ -202,6 +189,21 @@ int main()
 	std::cout << "Sorted subrange: ";
 	for (int i = kStart; i <= kEnd; i++) {
 		std::cout << arr5[i] << " ";
+	}
+	std::cout << std::endl;
+	cout << endl;
+
+	std::vector<int> arr6 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
+	cout << "Testing Iterative Merge Sort" << endl;
+	std::cout << "Original array: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr6[i] << " ";
+	}
+	std::cout << std::endl;
+	ShellSort(arr6, kStart, kEnd);
+	std::cout << "Sorted subrange: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr6[i] << " ";
 	}
 	std::cout << std::endl;
 	cout << endl;

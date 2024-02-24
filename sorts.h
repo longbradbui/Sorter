@@ -2,6 +2,7 @@
 #define SORT_H_
 #include <iostream>
 #include <vector>
+#include <algorithm>
 using namespace std;
 
 void BubbleSort(vector<int>& array, int start, int end);
@@ -127,7 +128,16 @@ void MergeSort(vector<int>& array, int start, int end)
 
 void IterativeMergeSort(vector <int> array, int start, int end)
 {
-
+    int size = (end - start) + 1;
+    for (int curr_size = 1; curr_size < size; curr_size *= 2)
+    {
+        for (int left_start = 0; left_start < size - 1; left_start += curr_size * 2)
+        {
+            int mid = min(left_start + curr_size - 1, size - 1);
+            int end = min(left_start + 2 * curr_size - 1, size - 1);
+            Merge(array, left_start, mid, end);
+        }
+    }
 }
 
 void Swap(int& lhs, int& rhs)
