@@ -18,9 +18,20 @@ void Swap(int& lhs, int& rhs);
 
 void BubbleSort(vector<int>& array, int start, int end)
 {
-    for (int i = start; i < end; i++) // Loop from start to end
+    /* Precondition Checking */
+    if (array.size() < 1)
     {
-        for (int j = start; j < start + end - i; j ++) // Loop from start to start + end - i 
+        cerr << "Invalid Array Input" << endl;
+    }
+    if (start > end)
+    {
+        cerr << "Starting Point cannont be greater than Ending Point" << endl;
+    }
+    /* Loop from[start] to[end] */
+    for (int i = start; i < end; i++) 
+    {
+        /* Loop from[start] to[start + end - i] */
+        for (int j = start; j < start + end - i; j ++)  
         {
             if (array[j] > array[j + 1])
             {
@@ -32,6 +43,15 @@ void BubbleSort(vector<int>& array, int start, int end)
 
 void InsertionSort(vector<int>& array, int start, int end)
 {
+    /* Precondition Checking */
+    if (array.size() < 1)
+    {
+        cerr << "Invalid Array Input" << endl;
+    }
+    if (start > end)
+    {
+        cerr << "Starting Point cannont be greater than Ending Point" << endl;
+    }
     for (int i = start + 1; i <= end; i++)
     {
         int j = i - 1;
@@ -47,13 +67,23 @@ void InsertionSort(vector<int>& array, int start, int end)
 
 void QuickSort(vector<int>& array, int start, int end)
 {
-    /* Array contains less than 10 items is reasonable to use Insertion Sort*/
+    /* Precondition Checking */
+    if (array.size() < 1)
+    {
+        cerr << "Invalid Array Input" << endl;
+    }
+    if (start > end)
+    {
+        cerr << "Starting Point cannont be greater than Ending Point" << endl;
+    }
+    /* Array contains less than 10 items is reasonable to use Insertion Sort */
     if (end - start + 1 < 10)
     {
         InsertionSort(array, start, end);
         return;
     }
     int mid = (start + end) / 2;
+    /* Swapping three major references before partitioning */
     if (array[start] > array[end])
     {
         Swap(array[start], array[end]);
@@ -99,6 +129,15 @@ void QuickSort(vector<int>& array, int start, int end)
 
 void ShellSort(vector<int>& array, int start, int end)
 {
+    /* Precondition Checking */
+    if (array.size() < 1)
+    {
+        cerr << "Invalid Array Input" << endl;
+    }
+    if (start > end)
+    {
+        cerr << "Starting Point cannont be greater than Ending Point" << endl;
+    }
     int size = end - start + 1;
     for (int gap = size / 2; gap > 0; gap /= 2)
     {
@@ -117,7 +156,16 @@ void ShellSort(vector<int>& array, int start, int end)
 
 void MergeSort(vector<int>& array, int start, int end)
 {
-    if (start < end)
+    /* Precondition Checking */
+    if (array.size() < 1)
+    {
+        cerr << "Invalid Array Input" << endl;
+    }
+    if (start > end)
+    {
+        cerr << "Starting Point cannont be greater than Ending Point" << endl;
+    }
+    else
     {
         int mid = (start + end) / 2;
         MergeSort(array, start, mid);
@@ -128,13 +176,26 @@ void MergeSort(vector<int>& array, int start, int end)
 
 void IterativeMergeSort(vector <int> array, int start, int end)
 {
+    /* Precondition Checking */
+    if (array.size() < 1)
+    {
+        cerr << "Invalid Array Input" << endl;
+    }
+    if (start > end)
+    {
+        cerr << "Starting Point cannont be greater than Ending Point" << endl;
+    }
     int size = (end - start) + 1;
+    /* Initially, we merge two sub-arrays of size 1 to create a sorted sub-array of size 2.
+    Then merge two sub-arrays of size 2 to create a sorted sub array of size 4, and so on. */
     for (int curr_size = 1; curr_size < size; curr_size *= 2)
     {
+        /* Left start: the starting point of different sub-arrays of the associated size*/
         for (int left_start = 0; left_start < size - 1; left_start += curr_size * 2)
         {
             int mid = min(left_start + curr_size - 1, size - 1);
             int end = min(left_start + 2 * curr_size - 1, size - 1);
+            // Merge Subarrays array[left_start...mid] & array[mid + 1...right_end]
             Merge(array, left_start, mid, end);
         }
     }
