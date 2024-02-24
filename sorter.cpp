@@ -1,10 +1,11 @@
 #include <vector>
 #include <string>
-#include <sys/time.h>
+// #include <sys/time.h>
 #include <iostream>
 #include "sorts.h"
 using namespace std;
 
+/*
 //Global functions
 void InitVector(vector<int>& item_vetor, int size);
 void PrintVector(const vector<int>& item_vector, string name);
@@ -124,4 +125,85 @@ int Elapsed(const timeval& start, const timeval& end)
 {
 	return (end.tv_sec - start.tv_sec) * 1000000
 		+ (end.tv_usec - start.tv_usec);
+}
+*/
+static const int kStart = 3;
+static const int kEnd = 8;
+int main()
+{
+	cout << "Testing Bubble Sort" << endl;
+	std::vector<int> arr1 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
+	std::cout << "Original array: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr1[i] << " ";
+	}
+	std::cout << std::endl;
+	BubbleSort(arr1, kStart, kEnd);
+	std::cout << "Sorted subrange: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr1[i] << " ";
+	}
+	std::cout << std::endl;
+	cout << endl;
+
+	std::vector<int> arr2 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
+	cout << "Testing Insertion Sort" << endl;
+	std::cout << "Original array: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr2[i] << " ";
+	}
+	std::cout << std::endl;
+	InsertionSort(arr2, kStart, kEnd);
+	std::cout << "Sorted subrange: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr2[i] << " ";
+	}
+	std::cout << std::endl;
+	cout << endl;
+
+	std::vector<int> arr3 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
+	cout << "Testing Recursive Merge Sort" << endl;
+	std::cout << "Original array: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr3[i] << " ";
+	}
+	std::cout << std::endl;
+	InsertionSort(arr3, kStart, kEnd);
+	std::cout << "Sorted subrange: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr3[i] << " ";
+	}
+	std::cout << std::endl;
+	cout << endl;
+
+	std::vector<int> arr4 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
+	cout << "Testing Quick Sort" << endl;
+	std::cout << "Original array: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr4[i] << " ";
+	}
+	std::cout << std::endl;
+	QuickSort(arr4, kStart, kEnd);
+	std::cout << "Sorted subrange: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr4[i] << " ";
+	}
+	std::cout << std::endl;
+	cout << endl;
+
+	std::vector<int> arr5 = { 3, 2, 7, 8, 10, 9, 0, 1, 4, 6, 5 };
+	cout << "Testing Shell Sort" << endl;
+	std::cout << "Original array: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr5[i] << " ";
+	}
+	std::cout << std::endl;
+	ShellSort(arr5, kStart, kEnd);
+	std::cout << "Sorted subrange: ";
+	for (int i = kStart; i <= kEnd; i++) {
+		std::cout << arr5[i] << " ";
+	}
+	std::cout << std::endl;
+	cout << endl;
+	return 0;
 }
