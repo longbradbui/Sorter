@@ -5,33 +5,24 @@
 #include <algorithm>
 using namespace std;
 
-void BubbleSort(vector<int>& array, int start, int end);
-void InsertionSort(vector<int>& array, int start, int end);
-void MergeSort(vector<int>& array, int start, int end);
-void IterativeMergeSort(vector <int> array, int start, int end);
-void QuickSort(vector<int>& array, int start, int end);
-void ShellSort(vector<int>& array, int start, int end);
-void Merge(vector<int>& array, int start, int mid, int end);
-void Swap(int& lhs, int& rhs);
+void BubbleSort(vector<int> &array, int start, int end);
+void InsertionSort(vector<int> &array, int start, int end);
+void MergeSort(vector<int> &array, int start, int end);
+void IterativeMergeSort(vector<int> &array, int start, int end);
+void QuickSort(vector<int> &array, int start, int end);
+void ShellSort(vector<int> &array, int start, int end);
+void Merge(vector<int> &array, int start, int mid, int end);
+void Swap(int &lhs, int &rhs);
 
 #endif
 
-void BubbleSort(vector<int>& array, int start, int end)
+void BubbleSort(vector<int> &array, int start, int end)
 {
-    /* Precondition Checking */
-    if (array.size() < 1)
-    {
-        cerr << "Invalid Array Input" << endl;
-    }
-    if (start > end)
-    {
-        cerr << "Starting Point cannont be greater than Ending Point" << endl;
-    }
     /* Loop from[start] to[end] */
-    for (int i = start; i < end; i++) 
+    for (int i = start; i < end; i++)
     {
         /* Loop from[start] to[start + end - i] */
-        for (int j = start; j < start + end - i; j ++)  
+        for (int j = start; j < start + end - i; j++)
         {
             if (array[j] > array[j + 1])
             {
@@ -41,17 +32,8 @@ void BubbleSort(vector<int>& array, int start, int end)
     }
 }
 
-void InsertionSort(vector<int>& array, int start, int end)
+void InsertionSort(vector<int> &array, int start, int end)
 {
-    /* Precondition Checking */
-    if (array.size() < 1)
-    {
-        cerr << "Invalid Array Input" << endl;
-    }
-    if (start > end)
-    {
-        cerr << "Starting Point cannont be greater than Ending Point" << endl;
-    }
     for (int i = start + 1; i <= end; i++)
     {
         int j = i - 1;
@@ -65,17 +47,8 @@ void InsertionSort(vector<int>& array, int start, int end)
     }
 }
 
-void QuickSort(vector<int>& array, int start, int end)
+void QuickSort(vector<int> &array, int start, int end)
 {
-    /* Precondition Checking */
-    if (array.size() < 1)
-    {
-        cerr << "Invalid Array Input" << endl;
-    }
-    if (start > end)
-    {
-        cerr << "Starting Point cannont be greater than Ending Point" << endl;
-    }
     /* Array contains less than 10 items is reasonable to use Insertion Sort */
     if (end - start + 1 < 10)
     {
@@ -127,25 +100,16 @@ void QuickSort(vector<int>& array, int start, int end)
     QuickSort(array, item_from_left + 1, end);
 }
 
-void ShellSort(vector<int>& array, int start, int end)
+void ShellSort(vector<int> &array, int start, int end)
 {
-    /* Precondition Checking */
-    if (array.size() < 1)
-    {
-        cerr << "Invalid Array Input" << endl;
-    }
-    if (start > end)
-    {
-        cerr << "Starting Point cannont be greater than Ending Point" << endl;
-    }
     int size = end - start + 1;
     for (int gap = size / 2; gap > 0; gap /= 2)
     {
-        for (int i = gap + start; i <= end; i++) // Start from start + gap
+        for (int i = gap + start; i <= end; i++) 
         {
             int temp = array[i];
             int j;
-            for (j = i; j >= gap + start && temp < array[j - gap]; j -= gap) // Update loop condition
+            for (j = i; j >= gap + start && temp < array[j - gap]; j -= gap) 
             {
                 array[j] = array[j - gap];
             }
@@ -154,18 +118,9 @@ void ShellSort(vector<int>& array, int start, int end)
     }
 }
 
-void MergeSort(vector<int>& array, int start, int end)
+void MergeSort(vector<int> &array, int start, int end)
 {
-    /* Precondition Checking */
-    if (array.size() < 1)
-    {
-        cerr << "Invalid Array Input" << endl;
-    }
-    if (start > end)
-    {
-        cerr << "Starting Point cannont be greater than Ending Point" << endl;
-    }
-    else
+    if (start < end)
     {
         int mid = (start + end) / 2;
         MergeSort(array, start, mid);
@@ -174,51 +129,101 @@ void MergeSort(vector<int>& array, int start, int end)
     }
 }
 
-void IterativeMergeSort(vector <int> array, int start, int end)
+void IterativeMergeSort(vector<int> &array, int start, int end)
 {
-    /* Precondition Checking */
-    if (array.size() < 1)
-    {
-        cerr << "Invalid Array Input" << endl;
-    }
-    if (start > end)
-    {
-        cerr << "Starting Point cannont be greater than Ending Point" << endl;
-    }
     int size = (end - start) + 1;
-    /* Initially, we merge two sub-arrays of size 1 to create a sorted sub-array of size 2.
-    Then merge two sub-arrays of size 2 to create a sorted sub array of size 4, and so on. */
-    for (int curr_size = 1; curr_size < size; curr_size *= 2)
-    {
-        /* Left start: the starting point of different sub-arrays of the associated size*/
-        for (int left_start = 0; left_start < size - 1; left_start += curr_size * 2)
-        {
-            int mid = min(left_start + curr_size - 1, size - 1);
-            int end = min(left_start + 2 * curr_size - 1, size - 1);
-            // Merge Subarrays array[left_start...mid] & array[mid + 1...right_end]
-            Merge(array, left_start, mid, end);
-        }
-    }
+    int gap = 1;
+	int *temp_array = new int[size];
+    /* Copy from orginal array to auxiliary array */
+	for (int i = 0; i < start; i++)
+	{
+		temp_array[i] = array[i];
+	}
+	while (gap < size)
+	{
+		int current = start;
+		int first1 = start;
+		int index1;
+		int	index2;
+		while ((first1 + gap) < (end + 1))
+		{
+			int first2 = (first1 + gap);
+			int last1 = (first2 - 1);
+			int last2;
+			if (!((first2 + gap - 1) < (end + 1)))
+			{
+				last2 = end;
+			}
+			else
+			{
+				last2 = (first2 + gap - 1);
+			}
+			index1 = first1;
+			index2 = first2;
+			while ((index1 <= last1) && (index2 <= last2))
+			{
+				if (array[index1] >= array[index2])
+				{
+					temp_array[current] = array[index2];
+					index2++;
+				}
+				else
+				{
+					temp_array[current] = array[index1];
+					index1++;
+				}
+				current++;
+			}
+			while (index1 <= last1)
+			{
+				temp_array[current] = array[index1];
+				index1++;
+				current++;
+			}
+
+			while (index2 <= last2)
+			{
+				temp_array[current] = array[index2];
+				current++;
+				index2++;
+			}
+
+			first1 = last2 + 1;
+		}
+		index1 = first1;
+		while (current < (end + 1))
+		{
+			temp_array[current] = array[index1];
+			current++;
+			index1++;
+		}
+        /* Copy from auxiliary array to orginal array */
+		for (int i = start; i < (end + 1); i++)
+		{
+			array[i] = temp_array[i];
+		}
+        /* Increment size of gap */
+		gap *= 2;
+	}
 }
 
-void Swap(int& lhs, int& rhs)
+void Swap(int &lhs, int &rhs)
 {
     int temp = lhs;
     lhs = rhs;
     rhs = temp;
 }
 
-void Merge(vector<int>& array, int start, int mid, int end)
+void Merge(vector<int> &array, int start, int mid, int end)
 {
+    int *temp_array;
+    int size = end - start + 1;
+    temp_array = new int[size];
     int lhs_start = start;
     int lhs_end = mid;
     int rhs_start = mid + 1;
     int rhs_end = end;
-    int size = end - start + 1;
     int index = 0;
-    int* temp_array = new int[size];
-    /* While both sub-arrays are not empty, continuously copy the smaller item to the temporary array
-    After this point, either lhs sub-array or rhs sub-array might contain extra item */
     while ((lhs_start <= lhs_end) && (rhs_start <= rhs_end))
     {
         if (array[lhs_start] < array[rhs_start])
@@ -233,26 +238,22 @@ void Merge(vector<int>& array, int start, int mid, int end)
         }
         index++;
     }
-    /* Finish off the first sub-array */
     while (lhs_start <= lhs_end)
     {
         temp_array[index] = array[lhs_start];
         lhs_start++;
         index++;
     }
-    /* Finish off the second sub-array */
     while (rhs_start <= rhs_end)
     {
         temp_array[index] = array[rhs_start];
         rhs_start++;
         index++;
     }
-    /* Copy the sorted elements from the temporary array back to the original array */
-    for (index = start; index < end; index++)
+    for (index = 0; index < size; index++)
     {
         array[start] = temp_array[index];
         start++;
     }
-    /* Free the temporary array */
     delete[] temp_array;
 }
