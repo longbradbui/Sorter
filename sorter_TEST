@@ -1,0 +1,120 @@
+echo "Print Bubble Sort - 10 elements"
+./sorter BubbleSort 10 Print
+echo "Print Insertion Sort - 10 elements"
+./sorter InsertionSort 10 Print
+echo "Print Quick Sort - 10 elements"
+./sorter QuickSort 10 Print
+echo "Print Shell Sort - 10 elements"
+./sorter ShellSort 10 Print
+echo "Print Recursive Merge Sort - 10 elements"
+./sorter MergeSort 10 Print
+echo "Print Iterative Merge Sort - 10 elements"
+./sorter IterativeMergeSort 10 Print
+echo "TEST #1: (Bubble Sort - 10 elements)"
+./sorter BubbleSort 10
+echo "TEST #2: (Insertion Sort - 10 elements)"
+./sorter InsertionSort 10
+echo "TEST #3: (Quick Sort - 10 elements)"
+./sorter QuickSort 10
+echo "TEST #4: (Shell Sort - 10 elements)"
+./sorter ShellSort 10
+echo "TEST #5: (Recursive Merge Sort - 10 elements)"
+./sorter MergeSort 10
+echo "TEST #6: (Iterative Merge Sort - 10 elements)"
+./sorter IterativeMergeSort 10
+echo "TEST #7: (Bubble Sort - 100 elements)"
+./sorter BubbleSort 100
+echo "TEST #8: (Insertion Sort - 100 elements)"
+./sorter InsertionSort 100
+echo "TEST #9: (Quick Sort - 100 elements)"
+./sorter QuickSort 100
+echo "TEST #10: (Shell Sort - 100 elements)"
+./sorter ShellSort 100
+echo "TEST #11: (Recursive Merge Sort - 100 elements)"
+./sorter MergeSort 100
+echo "TEST #12: (Iterative Merge Sort - 100 elements)"
+./sorter IterativeMergeSort 100
+echo "TEST #13: (Bubble Sort - 1000 elements)"
+./sorter BubbleSort 1000
+echo "TEST #14: (Insertion Sort - 1000 elements)"
+./sorter InsertionSort 1000
+echo "TEST #15: (Quick Sort - 1000 elements)"
+./sorter QuickSort 1000
+echo "TEST #16: (Shell Sort - 1000 elements)"
+./sorter ShellSort 1000
+echo "TEST #17: (Recursive Merge Sort - 1000 elements)"
+./sorter MergeSort 1000
+echo "TEST #18: (Iterative Merge Sort - 1000 elements)"
+./sorter IterativeMergeSort 1000
+echo "TEST #19: (Bubble Sort - 10000 elements)"
+./sorter BubbleSort 10000
+echo "TEST #20: (Insertion Sort - 10000 elements)"
+./sorter InsertionSort 10000
+echo "TEST #21: (Quick Sort - 10000 elements)"
+./sorter QuickSort 10000
+echo "TEST #22: (Shell Sort - 10000 elements)"
+./sorter ShellSort 10000
+echo "TEST #23: (Recursive Merge Sort - 10000 elements)"
+./sorter MergeSort 10000
+echo "TEST #24: (Iterative Merge Sort - 10000 elements)"
+./sorter IterativeMergeSort 10000
+echo "TEST #25: (Bubble Sort - 25000 elements)"
+./sorter BubbleSort 25000
+echo "TEST #26: (Insertion Sort - 25000 elements)"
+./sorter InsertionSort 25000
+echo "TEST #27: (Quick Sort - 25000 elements)"
+./sorter QuickSort 25000
+echo "TEST #28: (Shell Sort - 25000 elements)"
+./sorter ShellSort 25000
+echo "TEST #29: (Recursive Merge Sort - 25000 elements)"
+./sorter MergeSort 25000
+echo "TEST #30: (Iterative Merge Sort - 25000 elements)"
+./sorter IterativeMergeSort 25000
+echo "TEST #31: (Bubble Sort - 50000 elements)"
+./sorter BubbleSort 50000
+echo "TEST #32: (Insertion Sort - 50000 elements)"
+./sorter InsertionSort 50000
+echo "TEST #33: (Quick Sort - 50000 elements)"
+./sorter QuickSort 50000
+echo "TEST #34: (Shell Sort - 50000 elements)"
+./sorter ShellSort 50000
+echo "TEST #35: (Recursive Merge Sort - 50000 elements)"
+./sorter MergeSort 50000
+echo "TEST #36: (Iterative Merge Sort - 50000 elements)"
+./sorter IterativeMergeSort 50000
+echo "TEST #37: (Bubble Sort - 100000 elements)"
+./sorter BubbleSort 100000
+echo "TEST #38: (Insertion Sort - 100000 elements)"
+./sorter InsertionSort 100000
+echo "TEST #39: (Quick Sort - 100000 elements)"
+./sorter QuickSort 100000
+echo "TEST #40: (Shell Sort - 100000 elements)"
+./sorter ShellSort 100000
+echo "TEST #41: (Recursive Merge Sort - 100000 elements)"
+./sorter MergeSort 100000
+echo "TEST #42: (Iterative Merge Sort - 100000 elements)"
+./sorter IterativeMergeSort 100000
+echo "TEST #43: (Bubble Sort - 250000 elements)"
+./sorter BubbleSort 250000
+echo "TEST #44: (Insertion Sort - 250000 elements)"
+./sorter InsertionSort 250000
+echo "TEST #45: (Quick Sort - 250000 elements)"
+./sorter QuickSort 250000
+echo "TEST #46: (Shell Sort - 250000 elements)"
+./sorter ShellSort 250000
+echo "TEST #47: (Recursive Merge Sort - 250000 elements)"
+./sorter MergeSort 250000
+echo "TEST #48: (Iterative Merge Sort - 250000 elements)"
+./sorter IterativeMergeSort 250000
+echo "TEST #49: (Bubble Sort - 500000 elements)"
+./sorter BubbleSort 500000
+echo "TEST #50: (Insertion Sort - 500000 elements)"
+./sorter InsertionSort 500000
+echo "TEST #51: (Quick Sort - 500000 elements)"
+./sorter QuickSort 500000
+echo "TEST #52: (Shell Sort - 500000 elements)"
+./sorter ShellSort 500000
+echo "TEST #53: (Recursive Merge Sort - 500000 elements)"
+./sorter MergeSort 500000
+echo "TEST #54: (Iterative Merge Sort - 500000 elements)"
+./sorter IterativeMergeSort 500000
